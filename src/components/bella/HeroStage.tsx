@@ -12,7 +12,7 @@ function seg(p: number, from: number, to: number) {
 
 const ORB_POSITIONS = [
   "left-[4%] top-[18%] md:left-[6%] md:top-[16%]",
-  "right-[4%] top-[38%] md:right-[7%] md:top-[30%]",
+  "right-[2%] top-[38%] md:right-[-2%] md:top-[30%]",
   "left-[8%] bottom-[16%] md:left-[12%] md:bottom-[14%]",
 ];
 
@@ -77,7 +77,7 @@ export function HeroStage() {
           {/* Copy */}
           <div
             className="order-2 md:order-1"
-            style={{ opacity: reduced ? 1 : 0.35 + 0.65 * copyIn }}
+            style={{ opacity: reduced ? 1 : 0.55 + 0.45 * copyIn }}
           >
             <p className="label-caps text-violet-deep">Bella Face · Cuidado tópico</p>
             <h1 className="mt-6 text-4xl leading-[1.08] text-ink sm:text-5xl md:text-6xl">
