@@ -3,6 +3,7 @@ import { HeroStage } from "@/components/bella/HeroStage";
 import { LineMarquee } from "@/components/bella/LineMarquee";
 import { StickyBuyBar } from "@/components/bella/StickyBuyBar";
 import { BuyButton } from "@/components/bella/BuyButton";
+import { SkinVisual } from "@/components/bella/SkinVisual";
 import { CONCERNS, LINE, PRICE_LABEL, PRODUCT, track } from "@/lib/bella-face";
 
 const TITLE = "Creme Bella Face — cuidado tópico para manchas | 30 g";
@@ -126,12 +127,22 @@ function Index() {
             >
               Cuidar da aparência da pele começa por entender o que incomoda você.
             </h2>
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {CONCERNS.map((c) => (
-                <article key={c.key} className="rounded-sm bg-mist p-8">
-                  <div className="mb-8 h-28 rounded-sm bg-gradient-to-br from-lilac to-white" />
-                  <h3 className="rule-teal text-2xl">{c.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <article
+                  key={c.key}
+                  className="group rounded-2xl bg-white p-5 border border-border/80 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 flex flex-col"
+                >
+                  <div className="mb-5 aspect-[16/10] w-full overflow-hidden rounded-xl bg-mist border border-border/50">
+                    <SkinVisual
+                      type={c.key as "acne" | "melasma" | "solares" | "sardas"}
+                      className="transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-lg font-serif font-medium text-ink">
+                    {c.title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                     {c.text}
                   </p>
                 </article>
@@ -183,9 +194,6 @@ function Index() {
               caso de dúvida ou sensibilidade, interrompa e procure orientação
               profissional.
             </p>
-            <BuyButton source="protocolo" className="mt-8">
-              Comprar o Creme Bella Face — {PRICE_LABEL}
-            </BuyButton>
           </div>
         </section>
 
@@ -263,17 +271,6 @@ function Index() {
                 </details>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="bg-paper py-24 text-center">
-          <div className="mx-auto max-w-2xl px-6">
-            <h2 className="text-3xl sm:text-4xl">
-              Comece pela rotina. O resto é constância.
-            </h2>
-            <BuyButton source="cta_final" className="mt-8">
-              Comprar por {PRICE_LABEL}
-            </BuyButton>
           </div>
         </section>
       </main>
